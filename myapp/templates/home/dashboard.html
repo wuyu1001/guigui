@@ -1,0 +1,55 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="intro-message">
+					<h1>The Dashboard</h1>
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#current" data-toggle="tab">Current Weather</a>
+						</li>
+						<li>
+							<a href="#forecast" data-toggle="tab">Forecast Weather</a>
+						</li>
+						<li>
+							<a href="#history" data-toggle="tab">History Weather</a>
+						</li>
+						<li>
+							<a href="#help" data-toggle="tab">Help</a>
+						</li>
+					</ul>
+				<div class="tab-content">
+					<div id="current" class="tab-pane fade in active">
+						<h1>实时天气查询</h1>
+						<br/>
+						{{ wtf.quick_form(form) }}
+						{% if form.query.data %}
+						<p>您当前查询所在地：{{ country }},{{ region }},{{ name }}</p>
+						<p>当前实时气温：{{ temperature }}</p>
+						<p>天气情况：<img src="{{ icon }}" alt="HTML5 Icon">,{{ text }}</p>
+						<p>当地时间：{{ localtime }}</p>
+						{% endif %}	
+					</div>
+					<div id="forecast" class="tab-pane fade">
+						<h1>天气预测查询</h1>
+						<br/>
+						{{ wtf.quick_form(form) }}
+					</div>
+					<div id="history" class="tab-pane fade">
+						<h1>天气历史查询</h1>
+						<br/>
+						{{ wtf.quick_form(form) }}
+					</div>
+					<div id="help" class="tab-pane fade">
+						<h1>查询帮助</h1>
+						
+				</div>
+				</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
