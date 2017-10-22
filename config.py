@@ -1,6 +1,8 @@
 class Config(object):
     DEBUG = False
     TESTING = False
+    CSRF_ENABLED = True
+
 
     # Put any configurations here that are common across all environments
 
