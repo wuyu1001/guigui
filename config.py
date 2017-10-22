@@ -6,6 +6,9 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
+    SECRET_KEY = 'p9Bv<3Eid9%$i01' 
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    
     
 
 
@@ -14,9 +17,7 @@ class Config(object):
 class ProductionConfig(Config):
 
     DEBUG = False
-    SECRET_KEY = 'p9Bv<3Eid9%$i01' 
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-
+    
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLACHEMY_ECHO = True
